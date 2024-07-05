@@ -514,7 +514,7 @@
      async function loginUser({ id }) {
          await $.ajax({
              type: "POST",
-             url: "https://chemring-trader-server.vercel.app/auth/login",//"http://localhost:8080/auth/login",
+             url: "https://dekmar-trader.vercel.app/auth/login",//"http://localhost:8080/auth/login",
              dataType: "json",
              data: { id},
              timeout: 30000,
@@ -596,7 +596,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://chemring-trader-server.vercel.app/users/${traderIdent}`,
+        url: `https://dekmar-trader.vercel.app/users/${traderIdent}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -644,7 +644,7 @@
         async function fetchTraders() {
               const response = await $.ajax({
                 type: "GET",
-                url: 'https://chemring-trader-server.vercel.app/users',
+                url: 'https://dekmar-trader.vercel.app/users',
                 dataType: "json",
                 timeout: 30000,
                 success:"",
@@ -695,7 +695,7 @@ traders.forEach(trader => {
 
             const response = await $.ajax({
                 type: "GET",
-                url: `https://appex-vercel.vercel.app/users/${userFromLS.email}`,
+                url: `https://dekmar-vercel.vercel.app/users/${userFromLS.email}`,
                 dataType: "json",
                 timeout: 30000,
                 success: async function (data) {

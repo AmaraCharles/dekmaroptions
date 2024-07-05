@@ -1196,7 +1196,7 @@ $(document).ready(async function () {
 
   const response = await $.ajax({
     type: "GET",
-    url: `https://chemring-trader-server.vercel.app/users/${parsedData}`,
+    url: `https://dekmar-trader.vercel.app/users/${parsedData}`,
     dataType: "json",
     timeout: 30000,
     success: async function (data) {
@@ -1232,7 +1232,7 @@ async function updateProfile({  name, id, drawdown, strategy ,risk,frequency,pro
 
   const response = await $.ajax({
     type: "PUT",
-    url: `https://chemring-trader-server.vercel.app/users/${currentUser._id}/profile/update`,
+    url: `https://dekmar-trader.vercel.app/users/${currentUser._id}/profile/update`,
     dataType: "json",
     data: { name, id, drawdown, strategy ,risk,frequency,profit,signal },
     timeout: 30000,
