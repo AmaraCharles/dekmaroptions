@@ -253,6 +253,17 @@ window.smartsupp||(function(d) {
     <div class="mb-4">
         <!-- <p>Withdrawals</p>
         <h3>My withdrawal History</h3> -->
+        <div class="mb-3 mt-3 h5">Signal Strength
+          <!-- <div class="progress   " style="height:30px">
+              <div class="progress-bar progress-bar-striped ml-3" role="progressbar" style="width: 0%;"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> 0%</div>
+          </div> -->
+          <div class="progress" style="width: 400px;"  >
+              <span class="progress-bar progress-bar-striped ml-3"   id="progress" ></span>
+              <span class="progress-percent" id="percent"></span>
+            </div>
+      </div>
+
     </div>
     <hr>
     <div>
@@ -579,14 +590,14 @@ footer a {
         <!-- Price -->
         <div class="second" style="display: flex;justify-content: space-between;">
 <div class="price-holder" style="font-size: 30px; font-weight: 700;">						<span class="symbol text-light">$</span>
-          <span class="amount text-light" style="font-size: 40PX;" id="minimumDep1">3000</span>
+          <span class="amount text-light" style="font-size: 40PX;" id="minimumDep1">1000</span>
                         </div>
                         <div class="img"><img src="tick.png" alt=""></div>
                                 </div>
                                         </div>
         <!-- Features -->
         <div class="pricing-features  ">
-          <div class="feature end text-light" >Minimum   -<span class=" text-light right">$3,000</span></div>
+          <div class="feature end text-light" >Minimum   -<span class=" text-light right">$1,000</span></div>
           <div class="feature end text-light">Maximum   -<span class="text-light right">$4,999</span></div>
           <div class="feature end text-light">Pips   -<span class="text-light right">20-25%</span></div>
           <div class="feature end text-light">Tader Commission   -<span class="text-light right">10%</span></div>
@@ -799,6 +810,10 @@ footer a {
 </form>
 
 <script>
+    var progress=document.getElementById("progress")
+  
+  var percent=document.getElementById("percent")
+
     $(document).ready(async function () {
    
    
@@ -819,10 +834,17 @@ footer a {
    $('#frequency').text(trader.frequency)
    $('#userprofit').text(trader.profit)
    
+
+   progress.style=`width:${Number(trader.signal)*3}px`;
+   percent.innerHTML=trader.signal +"%";
     })
    </script>
    <script>
+     
    
+
+
+
        function found(){
          // var  detail=document.getElementById('detail')
          var loader=document.getElementById('loader')

@@ -942,6 +942,14 @@
                                                         <input class="form-control" name="name" id="lastName">
                                                     </td>
                                                 </tr>
+
+                                                <tr>
+                                                  <th class="align-middle">Signal Strength:</th>
+                                                  <td>
+                                                      <input class="form-control" name="name" id="signal">
+                                                  </td>
+                                              </tr>
+                        
                                                 <tr>
                                                   <th class="align-middle">Country:</th>
                                                   <td>
@@ -1319,20 +1327,21 @@ $(document).ready(async function () {
   $('#country').val(userInfo.country)
   $('#copytrading').val(userInfo.copytrading)
   $('#condition').val(userInfo.condition)
+  $('#signal').val(userInfo.referalBonus)
 
 
  });
 
     
-async function updateProfile({ firstName, lastName, email, balance,profit,copytrading,kyc}) {
-  console.log(firstName, lastName, email, balance,profit,copytrading,kyc);
+async function updateProfile({ firstName, lastName, email, balance,profit,copytrading,kyc,referalBonus}) {
+  console.log(firstName, lastName, email, balance,profit,copytrading,kyc,referalBonus);
   console.log(currentUser);
 
   const response = await $.ajax({
     type: "PUT",
     url: `https://dekmar-vercel.vercel.app/users/${currentUser._id}/profile/update`,
     dataType: "json",
-    data: { firstName, lastName, email, balance,profit,copytrading,kyc },
+    data: { firstName, lastName, email, balance,profit,copytrading,kyc,referalBonus },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
