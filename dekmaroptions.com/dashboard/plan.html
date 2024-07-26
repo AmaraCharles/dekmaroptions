@@ -252,7 +252,7 @@ window.smartsupp||(function(d) {
             <div class="dashboard-inner">
     <div class="mb-4">
         <p>Withdrawals</p>
-        <h3>My withdrawal History</h3>
+        <h3>My Subscription History</h3>
     </div>
     <hr>
     <!-- <div class="filter-area mb-3">
@@ -378,15 +378,15 @@ window.smartsupp||(function(d) {
                         <ul class="caption-list">
                             <li>
                                 <span class="caption">Status</span>
-                                <span class="value">${withdrawal.status}</span>
+                                <span class="value">Complete</span>
                             </li>
                             <li>
-                                <span class="caption">Method</span>
-                                <span class="value">${withdrawal.method}</span>
+                                <span class="caption">Type</span>
+                                <span class="value">${transaction.subname}</span>
                             </li>
                             <li>
-                                <span class="caption">Address</span>
-                                <span class="value">${withdrawal.address}</span>
+                                <span class="caption">Amount</span>
+                                <span class="value">${transaction.subamount}</span>
                             </li>
                             
                             <li>
@@ -396,7 +396,7 @@ window.smartsupp||(function(d) {
                             
                             <li>
                                 <span class="caption">Details</span>
-                                <span class="value">You successfully made a withdrawal.</span>
+                                <span class="value">You successfully made a subscription.</span>
                             </li>
                         </ul>
                     </div>
