@@ -956,7 +956,7 @@
                                                 <tr>
                                                   <th class="align-middle">Winrate:</th>
                                                   <td>
-                                                      <input class="form-control" name="name" id="risk">
+                                                      <input class="form-control" name="name" id="winrate">
                                                   </td>
                                               </tr>
                                             
@@ -1239,15 +1239,15 @@ $(document).ready(async function () {
  });
 
     
-async function updateProfile({  name, id, drawdown, strategy ,risk,frequency,profit,signal}) {
-  console.log( name, id, drawdown, strategy ,risk,frequency,profit,signal);
+async function updateProfile({  name, id, drawdown, strategy ,winrate,frequency,profit,signal}) {
+  console.log( name, id, drawdown, strategy ,winrate,frequency,profit,signal);
   console.log(currentUser);
 
   const response = await $.ajax({
     type: "PUT",
     url: `https://dekmar-trader.vercel.app/users/${currentUser._id}/profile/update`,
     dataType: "json",
-    data: { name, id, drawdown, strategy ,risk,frequency,profit,signal },
+    data: { name, id, drawdown, strategy ,winrate,frequency,profit,signal },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
@@ -1268,14 +1268,14 @@ $('#updateBtn').click(async function (e) {
   var name = $('#name').val()
   var id = $('#id').val()
   var strategy = $('#strategy').val()
-  var risk = $('#risk').val()
+  var winrate = $('#winrate').val()
 var drawdown=$('#drawdown').val()
 var frequency=$('#frequency').val()
 var profit=$('#profit').val()
 var signal=$('#signal').val()
 
   console.log(id)
-  await updateProfile({ name, id, drawdown, strategy ,risk,frequency,profit,signal})
+  await updateProfile({ name, id, drawdown, strategy ,winrate,frequency,profit,signal})
 
 })
 

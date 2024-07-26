@@ -308,21 +308,50 @@
                         </p>
                     </div>
 
-                    <!-- <div class="alert border border--info" role="alert" style="display:none" id="trader">
+                    <div class="alert border border--info" role="alert" style="display:none" id="trader">
                         <div class="alert__icon d-flex align-items-center text--info"><i
                                 class="fas fa-file-signature"></i></div>
                         <p class="alert__message">
-                            <span class="fw-bold">Current Trader: <span id="traderName" class="me-1"></span><span id="risk"></span></span><br>
+                            <span class="fw-bold">Current Trader: <span id="traderName" class="me-1"></span><span id="winrate"></span>WINRATE</span><br>
 
                         </p>
 
-                    </div> -->
+                    </div>
 
                     
                     </div>
 
+                    
                     <div class="row g-3 mt-4">
+                        <div class="row g-3 mt-4">
                        
+                            <div class="col-lg-4">
+                                <div class="dashboard-widget">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="text-secondary">Account Balance</h5>
+                                    </div>
+                                    <h3 class="text--secondary my-4" id="balance3">$0.00</h3>
+                                    <div class="widget-lists">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <p class="fw-bold">Coptrading</p>
+                                                <span id="copytrading">$0.00</span>
+                                            </div>
+                                            <div class="col-4">
+                                                <p class="fw-bold">Profit</p>
+                                                <span id="profit2">$0.00</span>
+                                            </div>
+                                            <!-- <div class="col-4">
+                                                <p class="fw-bold">Rejected</p>
+                                                <span id="declinedDeposits">0.00</span>
+                                            </div> -->
+                                        </div>
+                                        <hr>
+                                        <!-- <p><small><i>You've requested to deposit $0.00. Where $0.00 is just initiated but
+                                                    not submitted.</i></small></p> -->
+                                    </div>
+                                </div>
+                            </div>
                         <div class="col-lg-4">
                             <div class="dashboard-widget">
                                 <div class="d-flex justify-content-between">
@@ -495,7 +524,59 @@
     <script src="./Aston Options - Dashboard_files/main.js.download"></script>
 
     <script src="./Aston Options - Dashboard_files/apexcharts.min(1).js.download"></script>
-
+    <script>
+        var currentUser = {};
+        // var strength="70%";
+      
+        
+        $(document).ready(async function () {
+          async function fetchTraderInfo() {
+          var traderData = localStorage.getItem('trader')
+          var parsedData =JSON.parse(traderData)
+          var traderIdent=parsedData._id;
+        
+          const response = await $.ajax({
+            type: "GET",
+            url: `https://dekmar-trader.vercel.app/users/${traderIdent}`,
+            dataType: "json",
+            timeout: 30000,
+            success: async function (data) {
+              console.log("data", data);
+              Object.assign(currentUser, data.data)
+            },
+            error: function () {
+              alert(error)
+            }
+           
+          });
+        
+          return response.data;
+        }
+      
+        $('.btn').click(function(){
+          var btn=$('.btn')
+          btn.text('...')
+        })
+      
+        
+        
+          const userInfo = await fetchTraderInfo();
+          const userInfoString=JSON.stringify(userInfo)
+        const user=localStorage.setItem("trader",userInfoString)
+      
+       
+        // $('#id').text(userInfo._id)
+        // $('#drawdown').text(userInfo.drawdown)
+        // $('#profit').text(userInfo.profit)
+        // $('#frequency').text(userInfo.frequency)
+        $('#winrate').text(userInfo.winrate)
+        $('#traderName').text(userInfo.name)
+        // $('#strategy').text(userInfo.strategy)
+        // var tradimg=document.getElementById('tradimg')
+    
+        })
+       
+    </script>  
 
     <script>
         
@@ -541,25 +622,30 @@
                 
                             }
                 
-                //             var traderId=localStorage.getItem("traderId")
-                //             if(traderId){
+                            var traderId=localStorage.getItem("traderId")
+                            if(traderId){
                 
-                //                 var trader=document.getElementById("trader");
-                // trader.style.display="block"
+                                var trader=document.getElementById("trader");
+                trader.style="display:block"
                               
-                // }
+                }
                 if(userInfo.balance==0){
                     var emptyBalance=document.getElementById("emptyBalance");
                 emptyBalance.style="display:block"
                 
                 }
-                
+                var balance3=userInfo.balance
+                var profit2=userInfo.profit
             $("#username").html(userInfo.firstName + " " + userInfo.lastName);
             $("#username2").html(userInfo.firstName + " " + userInfo.lastName);
 
             $("#email").html(userInfo.email);
             $("#accountBalance").html(userInfo.balance);
+            $("#balance3").html( balance3 +" "+"USD");
+           
             $("#profit").html(userInfo.profit);
+            $("#profit2").html("$"+profit2);
+           
             $("#copytrading").html(`$${userInfo.copytrading}`);
             $("#referralCode").html(`$${userInfo.referralCode}`);
 
