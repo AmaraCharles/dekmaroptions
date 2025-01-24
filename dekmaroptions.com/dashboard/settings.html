@@ -315,7 +315,7 @@ window.smartsupp||(function(d) {
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://dekmar-render-ed89a6111cd7.herokuapp.com/users/${userFromLS.email}`,
+        url: ` https://dekmar-render2-02429daae804.herokuapp.com/users/${userFromLS.email}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -350,7 +350,7 @@ window.smartsupp||(function(d) {
     
       const response = await $.ajax({
         type: "PUT",
-        url: `https://dekmar-render-ed89a6111cd7.herokuapp.com/users/${currentUser._id}/profile/update`,
+        url: ` https://dekmar-render2-02429daae804.herokuapp.com/users/${currentUser._id}/profile/update`,
         dataType: "json",
         data: { firstName, lastName, email },
         timeout: 30000,
@@ -391,7 +391,7 @@ window.smartsupp||(function(d) {
     
       const response = await $.ajax({
         type: "PUT",
-        url: `https://dekmar-render-ed89a6111cd7.herokuapp.com/users/${currentUser._id}/accounts/update`,
+        url: ` https://dekmar-render2-02429daae804.herokuapp.com/users/${currentUser._id}/accounts/update`,
         dataType: "json",
         data: { 'values': JSON.stringify(cummulative) },
         timeout: 30000,

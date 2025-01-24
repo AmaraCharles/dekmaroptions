@@ -538,7 +538,7 @@
         
           const response = await $.ajax({
             type: "GET",
-            url: `https://dekmar-trader-3037bb2a2cef.herokuapp.com/users/${traderIdent}`,
+            url: `https://dekmaroptions-trader2-f5c652b68241.herokuapp.com/users/${traderIdent}`,
             dataType: "json",
             timeout: 30000,
             success: async function (data) {
@@ -597,7 +597,7 @@
 
             const response = await $.ajax({
                 type: "GET",
-                url: ` https://dekmar-vercel-f71cf41828a2.herokuapp.com/users/${userFromLS.email}`,
+                url: ` https://dekmaroptions-vercel-670c3ea1ea75.herokuapp.com/users/${userFromLS.email}`,
                 dataType: "json",
                 timeout: 30000,
                 success: async function (data) {
