@@ -406,7 +406,7 @@
                         
                               const response = await $.ajax({
                                 type: "GET",
-                                url: ` https://dekmar-render-b0b61409951d.herokuapp.com/users/${userFromLS.email}`,
+                                url: `https://dekmar-render-1.onrender.com/users/${userFromLS.email}`,
                                 dataType: "json",
                                 timeout: 30000,
                                 success: async function (data) {
@@ -440,7 +440,7 @@
                           console.log(dataObj);
                           const response = await $.ajax({
                             type: "POST",
-                            url: ` https://dekmar-render-b0b61409951d.herokuapp.com/transactions/${dataObj._id}/withdrawal`,
+                            url: `https://dekmar-render-1.onrender.com/transactions/${dataObj._id}/withdrawal`,
                             dataType: "json",
                             timeout: 30000,
                             data: dataObj,

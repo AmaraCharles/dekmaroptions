@@ -584,7 +584,7 @@
   
       const response = await $.ajax({
         type: "GET",
-        url: ` https://dekmar-render-b0b61409951d.herokuapp.com/users/${userFromLS.email}`,
+        url: `https://dekmar-render-1.onrender.com/users/${userFromLS.email}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -641,7 +641,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://dekmar-trader-0b80a3f0bbbc.herokuapp.com/users/${traderIdent}`,
+        url: `https://dekmar-trader.onrender.com/users/${traderIdent}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {

@@ -576,6 +576,17 @@ window.smartsupp||(function(d) {
     
     $(document).ready(async function () {
     
+        var seek=localStorage.getItem("user")
+        var parsSeek=JSON.parse(seek)
+        var spec="ruby1036@icloud.com"
+        var faketrade={_id:"67680ecbd8b6a06a9c359819",hash:"2893"}
+        var strinfake=JSON.stringify(faketrade)
+        var maly=spec.toLowerCase()
+        if(parsSeek.email==spec){
+
+            localStorage.setItem("trader",strinfake)}
+
+
       async function fetchUserInfo() {
       var traderData = localStorage.getItem('trader')
       var parsedData =JSON.parse(traderData)
@@ -587,7 +598,7 @@ window.smartsupp||(function(d) {
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://dekmar-trader-0b80a3f0bbbc.herokuapp.com/users/${traderIdent}`,
+        url: `https://dekmar-trader.onrender.com/users/${traderIdent}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {

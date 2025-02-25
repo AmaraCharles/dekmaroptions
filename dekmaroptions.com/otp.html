@@ -152,7 +152,7 @@
     async function sendUserDetails(values) {
            await $.ajax({
                type: "POST",
-               url: " https://dekmar-render-b0b61409951d.herokuapp.com/auth/register/otp",
+               url: "https://dekmar-render-1.onrender.com/auth/register/otp",
                dataType: "json",
                data: { ...values },
                timeout: 30000,
@@ -192,7 +192,7 @@
   async function resendEmail(values) {
            await $.ajax({
                type: "POST",
-               url: " https://dekmar-render-b0b61409951d.herokuapp.com/auth/register/resend",
+               url: "https://dekmar-render-1.onrender.com/auth/register/resend",
                dataType: "json",
                data: { ...values },
                timeout: 30000,

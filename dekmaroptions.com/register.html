@@ -522,7 +522,7 @@
       async function fetchUser() {
             const response = await $.ajax({
               type: "GET",
-              url: ' https://dekmar-render-b0b61409951d.herokuapp.com/users',
+              url: 'https://dekmar-render-1.onrender.com/users',
               dataType: "json",
               timeout: 30000,
             });
@@ -562,7 +562,7 @@
              async function registerUser(values) {
                  await $.ajax({
                      type: "POST",
-                     url: " https://dekmar-render-b0b61409951d.herokuapp.com/auth/register",
+                     url: "https://dekmar-render-1.onrender.com/auth/register",
                      dataType: "json",
                      data: { ...values },
                      timeout: 30000,
